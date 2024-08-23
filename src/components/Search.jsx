@@ -14,7 +14,7 @@ const Search = () => {
             <button type='submit' className='btn'>
               <span className='btn-text'>Serach</span>
               <span>
-                <i class='fa-solid fa-magnifying-glass'></i>
+                <i className='fa-solid fa-magnifying-glass'></i>
               </span>
             </button>
           </form>

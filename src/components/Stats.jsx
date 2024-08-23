@@ -7,6 +7,17 @@ const Stats = () => {
         <div className='container-center'>
           <div className='container'>
             <div className='icon-wrapper'>
+              <span className='repos'>
+                <i className='fa-solid fa-file'></i>
+              </span>
+            </div>
+            <div className='info-wrapper'>
+              <p className='numbers'>34</p>
+              <p className='title'>Repos</p>
+            </div>
+          </div>
+          <div className='container'>
+            <div className='icon-wrapper'>
               <span className='followers'>
                 <i className='fa-solid fa-people-group'></i>
               </span>
@@ -25,17 +36,6 @@ const Stats = () => {
             <div className='info-wrapper'>
               <p className='numbers'>1</p>
               <p className='title'>Following</p>
-            </div>
-          </div>
-          <div className='container'>
-            <div className='icon-wrapper'>
-              <span className='repos'>
-                <i className='fa-solid fa-file'></i>
-              </span>
-            </div>
-            <div className='info-wrapper'>
-              <p className='numbers'>34</p>
-              <p className='title'>Repos</p>
             </div>
           </div>
           <div className='container'>
@@ -65,6 +65,7 @@ const Wrapper = styled.section`
   }
   .title {
     font-size: 1rem;
+    color: grey;
   }
   .container-center {
     display: flex;
@@ -82,10 +83,14 @@ const Wrapper = styled.section`
     align-items: center;
   }
   .info-wrapper {
-    margin-left: 30px;
+    margin-left: 10px;
   }
 
-  .followers {
+  .icon-wrapper span i {
+    color: grey;
+  }
+
+  /* .followers {
     color: #c8b6ff;
   }
   .following {
@@ -96,7 +101,7 @@ const Wrapper = styled.section`
   }
   .gists {
     color: #8c2f39;
-  }
+  } */
 
   @media screen and (min-width: 800px) {
     .container {
@@ -106,8 +111,11 @@ const Wrapper = styled.section`
     .icon-wrapper span {
       font-size: 1.8rem;
     }
-    .info-wrapper p {
-      font-size: 1.2rem;
+    .info-wrapper .title {
+      font-size: 1.1rem;
+    }
+    .numbers {
+      font-size: 1.4rem;
     }
   }
 `;
