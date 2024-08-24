@@ -25,7 +25,9 @@ const Navbar = () => {
                   />
                 </div>
                 <div>
-                  <p className='greet-text'>Hi, {user.name}</p>
+                  <p className='greet-text'>
+                    Hi, <span className='user-name'>{user.name}</span>
+                  </p>
                 </div>
               </div>
             )}
@@ -69,6 +71,9 @@ const Wrapper = styled.section`
   }
   .greet-text {
     font-size: 1.1rem;
+  }
+  .user-name{
+    font-weight: 600;
   }
   .greet-wrapper {
     display: flex;

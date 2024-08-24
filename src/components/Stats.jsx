@@ -1,123 +1,117 @@
+import React from 'react';
 import styled from 'styled-components';
+import { GoRepo, GoFileCode } from 'react-icons/go';
+import { FiUsers, FiUserPlus } from 'react-icons/fi';
+import { useUserContext } from '../context/UserContext';
 
-const Stats = () => {
+const UserInfo = () => {
+  const { githubUser } = useUserContext();
+  const { public_repos, followers, following, public_gists } = githubUser;
+
+  const items = [
+    {
+      id: 1,
+      icon: <GoRepo className='icon' />,
+      label: 'repos',
+      value: public_repos,
+      color: 'pink',
+    },
+    {
+      id: 2,
+      icon: <FiUsers className='icon' />,
+      label: 'followers',
+      value: followers,
+      color: 'green',
+    },
+    {
+      id: 3,
+      icon: <FiUserPlus className='icon' />,
+      label: 'following',
+      value: following,
+      color: 'purple',
+    },
+    {
+      id: 4,
+      icon: <GoFileCode className='icon' />,
+      label: 'gists',
+      value: public_gists,
+      color: 'yellow',
+    },
+  ];
+
   return (
-    <Wrapper className='section'>
-      <div className='content'>
-        <div className='container-center'>
-          <div className='container'>
-            <div className='icon-wrapper'>
-              <span className='repos'>
-                <i className='fa-solid fa-file'></i>
-              </span>
-            </div>
-            <div className='info-wrapper'>
-              <p className='numbers'>34</p>
-              <p className='title'>Repos</p>
-            </div>
-          </div>
-          <div className='container'>
-            <div className='icon-wrapper'>
-              <span className='followers'>
-                <i className='fa-solid fa-people-group'></i>
-              </span>
-            </div>
-            <div className='info-wrapper'>
-              <p className='numbers'>100</p>
-              <p className='title'>Followers</p>
-            </div>
-          </div>
-          <div className='container'>
-            <div className='icon-wrapper'>
-              <span className='following'>
-                <i className='fa-solid fa-user'></i>
-              </span>
-            </div>
-            <div className='info-wrapper'>
-              <p className='numbers'>1</p>
-              <p className='title'>Following</p>
-            </div>
-          </div>
-          <div className='container'>
-            <div className='icon-wrapper'>
-              <span className='gists'>
-                <i className='fa-solid fa-file-code'></i>
-              </span>
-            </div>
-            <div className='info-wrapper'>
-              <p className='numbers'>0</p>
-              <p className='title'>Gists</p>
-            </div>
-          </div>
-        </div>
+    <section className='section'>
+      <Wrapper className='section-center'>
+        {items.map((item) => {
+          return <Item key={item.id} {...item}></Item>;
+        })}
+      </Wrapper>
+    </section>
+  );
+};
+
+const Item = ({ icon, label, value, color }) => {
+  return (
+    <article className='item'>
+      <span className={color}>{icon}</span>
+      <div>
+        <h3>{value}</h3>
+        <p>{label}</p>
       </div>
-    </Wrapper>
+    </article>
   );
 };
 
 const Wrapper = styled.section`
-  .icon-wrapper span {
-    font-size: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem 2rem;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
-  .numbers {
-    font-size: 1rem;
-    font-weight: 700;
-  }
-  .title {
-    font-size: 1rem;
-    color: grey;
-  }
-  .container-center {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .container {
-    flex: 0 0 calc(50% - 10px);
-    background-color: #fff;
-    margin: 10px 0;
-    padding: 20px 10px;
+  .item {
     border-radius: 5px;
-    display: flex;
+    padding: 1rem 2rem;
+    background: #fff;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 3rem;
     align-items: center;
-  }
-  .info-wrapper {
-    margin-left: 10px;
-  }
-
-  .icon-wrapper span i {
-    color: grey;
-  }
-
-  /* .followers {
-    color: #c8b6ff;
-  }
-  .following {
-    color: #ee9b00;
-  }
-  .repos {
-    color: #386641;
-  }
-  .gists {
-    color: #8c2f39;
-  } */
-
-  @media screen and (min-width: 800px) {
-    .container {
-      flex: 0 0 calc(25% - 10px);
-      justify-content: space-around;
+    span {
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
     }
-    .icon-wrapper span {
-      font-size: 1.8rem;
+    .icon {
+      font-size: 1.5rem;
     }
-    .info-wrapper .title {
-      font-size: 1.1rem;
+    h3 {
+      margin-bottom: 0;
+      letter-spacing: 0;
     }
-    .numbers {
-      font-size: 1.4rem;
+    p {
+      margin-bottom: 0;
+      text-transform: capitalize;
+    }
+    .pink {
+      background: #ffe0f0;
+      color: #da4a91;
+    }
+    .green {
+      background: hsl(186, 100%, 94%);
+      color: hsl(185, 62%, 45%);
+    }
+    .purple {
+      background: #e6e6ff;
+      color: #5d55fa;
+    }
+    .yellow {
+      background: #fffbea;
+      color: #f0b429;
     }
   }
 `;
 
-export default Stats;
+export default UserInfo;

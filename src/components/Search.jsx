@@ -1,18 +1,31 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { useUserContext } from '../context/UserContext';
 
 const Search = () => {
+  const [user, setUser] = useState('');
+  const { searchUser, requests, errorMsg } = useUserContext();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchUser(user);
+  };
+
   return (
     <Wrapper className='section'>
+      <div>{errorMsg && <p className='err'>{errorMsg}</p>}</div>
       <div className='search-wrapper'>
         <div className='search-form'>
-          <form className='form'>
+          <form className='form' onClick={handleSubmit}>
             <input
               type='text'
               className='search-input'
               placeholder='Enter Github User'
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
             />
             <button type='submit' className='btn'>
-              <span className='btn-text'>Serach</span>
+              <span className='btn-text'>Search</span>
               <span>
                 <i className='fa-solid fa-magnifying-glass'></i>
               </span>
@@ -21,7 +34,7 @@ const Search = () => {
         </div>
         <div className='search-request'>
           <p className='requests'>
-            Requests : <span id='remaining-request'>10 / 50</span>
+            Requests : <span id='remaining-request'>{`${requests} / 60`}</span>
           </p>
         </div>
       </div>
@@ -59,7 +72,7 @@ const Wrapper = styled.section`
   .btn:hover {
     background-color: var(--hoverClr);
   }
-  .btn-text{
+  .btn-text {
     margin-right: 10px;
   }
   .form {
@@ -74,6 +87,11 @@ const Wrapper = styled.section`
 
   .requests {
     font-size: 1.1rem;
+  }
+
+  .err {
+    color: red;
+    letter-spacing: 1px;
   }
 
   @media screen and (min-width: 800px) {

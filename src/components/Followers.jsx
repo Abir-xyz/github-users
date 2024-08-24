@@ -100,7 +100,7 @@ const Wrapper = styled.section`
   .title {
     text-align: left;
     padding-bottom: 8px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     /* background-color: #fff; */
     border-radius: 5px;
@@ -136,6 +136,11 @@ const Wrapper = styled.section`
   }
   .person-info p a {
     color: grey;
+  }
+  @media screen and (min-width: 800px) {
+    .title {
+      font-size: 1.3rem;
+    }
   }
 `;
 
