@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import personImg from '../assets/followers.png';
+import { useUserContext } from '../context/UserContext';
 
 const Followers = () => {
+  const { followers } = useUserContext();
+
   return (
     <Wrapper className='section'>
       <div className='container'>
@@ -10,85 +13,29 @@ const Followers = () => {
         </div>
         <div className='container-center'>
           <div className='people-wrapper'>
-            <div className='people'>
-              <div>
-                <img src={personImg} className='person-img' />
-              </div>
-              <div className='person-info'>
-                <p className='name'>Charles</p>
-                <p>
-                  <a href='#' target='_0'>
-                    https://github.com/charlenopires
-                  </a>
-                </p>
-              </div>
-            </div>
-            {/* delete later */}
-            <div className='people'>
-              <div>
-                <img src={personImg} className='person-img' />
-              </div>
-              <div className='person-info'>
-                <p className='name'>Charles</p>
-                <p>
-                  <a href='#' target='_0'>
-                    https://github.com/charlenopires
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className='people'>
-              <div>
-                <img src={personImg} className='person-img' />
-              </div>
-              <div className='person-info'>
-                <p className='name'>Charles</p>
-                <p>
-                  <a href='#' target='_0'>
-                    https://github.com/charlenopires
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className='people'>
-              <div>
-                <img src={personImg} className='person-img' />
-              </div>
-              <div className='person-info'>
-                <p className='name'>Charles</p>
-                <p>
-                  <a href='#' target='_0'>
-                    https://github.com/charlenopires
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className='people'>
-              <div>
-                <img src={personImg} className='person-img' />
-              </div>
-              <div className='person-info'>
-                <p className='name'>Charles</p>
-                <p>
-                  <a href='#' target='_0'>
-                    https://github.com/charlenopires
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className='people'>
-              <div>
-                <img src={personImg} className='person-img' />
-              </div>
-              <div className='person-info'>
-                <p className='name'>Charles</p>
-                <p>
-                  <a href='#' target='_0'>
-                    https://github.com/charlenopires
-                  </a>
-                </p>
-              </div>
-            </div>
+            {/*  */}
+            {followers &&
+              followers.map((user) => {
+                return (
+                  <div className='people' key={user.id}>
+                    <div>
+                      <img src={user.avatar_url} className='person-img' />
+                    </div>
+                    <div className='person-info'>
+                      <p className='name'>{user.login}</p>
+                      <p>
+                        <a
+                          href={`https://github.com/${user.login}`}
+                          target='_0'
+                        >
+                          {` https://github.com/${user.login}`}
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            {/*  */}
           </div>
         </div>
       </div>
@@ -97,6 +44,9 @@ const Followers = () => {
 };
 
 const Wrapper = styled.section`
+  .container {
+    margin-bottom: 5rem;
+  }
   .title {
     text-align: left;
     padding-bottom: 8px;

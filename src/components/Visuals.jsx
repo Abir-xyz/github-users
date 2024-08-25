@@ -1,12 +1,5 @@
 import styled from 'styled-components';
-import {
-  UserInfo,
-  FollowersInfo,
-  LanguagesInfo,
-  PopularRepos,
-  StarsInfo,
-  ForksInfo,
-} from './index';
+import { UserInfo, FollowersInfo, Charts } from './index';
 
 const Visuals = () => {
   return (
@@ -14,10 +7,7 @@ const Visuals = () => {
       <div className='container'>
         <UserInfo />
         <FollowersInfo />
-        <LanguagesInfo />
-        <PopularRepos />
-        <StarsInfo />
-        <ForksInfo />
+        <Charts />
       </div>
     </Wrapper>
   );

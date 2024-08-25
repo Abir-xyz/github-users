@@ -23,7 +23,6 @@ export const UserProvider = ({ children }) => {
         const { login, followers_url } = data;
         const followersResponse = await axios(`${followers_url}?per_page=100`);
         const followersData = await followersResponse.data;
-        console.log(followersData);
         if (followersData) {
           setFollowers(followersData);
           console.log(followers);
@@ -51,6 +50,10 @@ export const UserProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  // useState(() => {
+  //   searchUser('gaearon');
+  // }, []);
 
   return (
     <UserContext.Provider

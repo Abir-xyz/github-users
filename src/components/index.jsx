@@ -8,6 +8,7 @@ import LanguagesInfo from './Languages';
 import PopularRepos from './Popular';
 import StarsInfo from './StarsInfo';
 import ForksInfo from './MostForked';
+import Charts from './Charts';
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   PopularRepos,
   StarsInfo,
   ForksInfo,
+  Charts,
 };

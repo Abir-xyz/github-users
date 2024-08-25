@@ -16,7 +16,7 @@ const Search = () => {
       <div>{errorMsg && <p className='err'>{errorMsg}</p>}</div>
       <div className='search-wrapper'>
         <div className='search-form'>
-          <form className='form' onClick={handleSubmit}>
+          <form className='form' onSubmit={handleSubmit}>
             <input
               type='text'
               className='search-input'
