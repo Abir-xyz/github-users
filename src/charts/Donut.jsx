@@ -8,13 +8,22 @@ charts(FusionCharts);
 
 const dataSource = {
   chart: {
-    caption: 'Market Share of Web Servers',
-    plottooltext: '<b>$percentValue</b> of web servers run on $label servers',
-    showlegend: '1',
-    showpercentvalues: '1',
-    legendposition: 'bottom',
-    usedataplotcolorforlabels: '1',
-    theme: 'gammel',
+    caption: 'Languages',
+    captionFontSize: 21,
+    captionFont: 'Open Sans',
+    captionFontColor: '#000000',
+    captionFontBold: 0,
+    showBorder: 0,
+    bgColor: '#fffffff',
+    pieRadius: '50%',
+    baseFont: 'Open Sans',
+    baseFontSize: 13,
+    baseFontColor: '#979797',
+    paletteColors: '#8BC1F7, #519DE9 , #06C, #004B95, #002F5D',
+    showShadow: 0,
+    showPlotBorder: 0,
+    use3DLighting: 0,
+    useDataPlotColorForLabels: 0,
   },
   data: [
     {
@@ -41,6 +50,8 @@ class MyComponent extends React.Component {
     return (
       <ReactFusioncharts
         type='pie2d'
+        height='400'
+        width='100%'
         dataFormat='JSON'
         dataSource={dataSource}
       />

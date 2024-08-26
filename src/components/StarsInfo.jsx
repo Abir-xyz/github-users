@@ -13,8 +13,14 @@ const StarsInfo = () => {
 
 const Wrapper = styled.section`
   .content {
-    text-align: center;
     margin: 2rem 0;
+  }
+  .content div {
+    width: 100% !important;
+  }
+  .content svg {
+    border-radius: 5px !important;
+    width: 100% !important;
   }
 `;
 

@@ -23,6 +23,7 @@ const Search = () => {
               placeholder='Enter Github User'
               value={user}
               onChange={(e) => setUser(e.target.value)}
+              required
             />
             <button type='submit' className='btn'>
               <span className='btn-text'>Search</span>

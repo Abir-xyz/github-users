@@ -22,16 +22,6 @@ const Charts = () => {
   );
 };
 
-const Wrapper = styled.section`
-  @media screen and (min-width: 800px) {
-    .charts-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    
-  }
-`;
+const Wrapper = styled.section``;
 
 export default Charts;

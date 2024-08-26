@@ -8,17 +8,26 @@ charts(FusionCharts);
 
 const dataSource = {
   chart: {
-    caption: 'Android Distribution for our app',
-    subcaption: 'For all users in 2023',
-    showpercentvalues: '1',
-    defaultcenterlabel: 'Android Distribution',
-    aligncaptionwithcanvas: '0',
-    captionpadding: '0',
-    decimals: '1',
-    plottooltext:
-      '<b>$percentValue</b> of our Android users are on <b>$label</b>',
-    centerlabel: '# Users: $value',
-    theme: 'candy',
+    caption: 'Stars Per Language',
+    decimals: 0,
+    pieRadius: '50%',
+    doughnutRadius: '60%',
+    showPercentValues: 0,
+    captionFontColor: '#102a42',
+    captionFontBold: 0,
+    captionFontSize: 21,
+    captionFont: 'Open Sans',
+    baseFont: 'Open Sans',
+    baseFontSize: 13,
+    baseFontColor: '#979797',
+    smartLineColor: '#617d98',
+    showShadow: 0,
+    showPlotBorder: 0,
+    paletteColors: '#8BC1F7, #519DE9 , #06C, #004B95, #002F5D',
+    use3DLighting: 0,
+    useDataPlotColorForLabels: 0,
+    bgColor: '#FFFFFF',
+    showBorder: 0,
   },
   data: [
     {
@@ -49,6 +58,8 @@ class MyComponent extends React.Component {
     return (
       <ReactFusioncharts
         type='doughnut2d'
+        height='400'
+        width='100%'
         dataFormat='JSON'
         dataSource={dataSource}
       />

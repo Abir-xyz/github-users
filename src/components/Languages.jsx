@@ -12,8 +12,12 @@ const Languages = () => {
 };
 
 const Wrapper = styled.section`
-  .content {
-    text-align: center;
+  .content div {
+    width: 100% !important;
+  }
+  .content svg {
+    border-radius: 5px !important;
+    width: 100% !important;
   }
 `;
 
