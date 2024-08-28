@@ -1,25 +1,9 @@
 import Navbar from './Navbar';
 import Search from './Search';
 import Stats from './Stats';
-import Visuals from './Visuals';
+import Content from './Contents';
 import UserInfo from './UserInfo';
 import FollowersInfo from './Followers';
-import LanguagesInfo from './Languages';
-import PopularRepos from './Popular';
-import StarsInfo from './StarsInfo';
-import ForksInfo from './MostForked';
-import Charts from './Charts';
+import Graphs from './Graphs';
 
-export {
-  Navbar,
-  Search,
-  Stats,
-  Visuals,
-  UserInfo,
-  FollowersInfo,
-  LanguagesInfo,
-  PopularRepos,
-  StarsInfo,
-  ForksInfo,
-  Charts,
-};
+export { Navbar, Search, Stats, Content, UserInfo, FollowersInfo, Graphs };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Navbar, Search, Stats, Visuals } from '../components/index';
+import { Navbar, Search, Content } from '../components/index';
 
 const Home = () => {
   return (
@@ -7,8 +7,7 @@ const Home = () => {
       <Navbar />
       <div className='contents-wrapper'>
         <Search />
-        <Stats />
-        <Visuals />
+        <Content />
       </div>
     </Wrapper>
   );

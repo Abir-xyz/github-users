@@ -11,6 +11,7 @@ export const UserProvider = ({ children }) => {
   const [requests, setRequests] = useState(0);
   const [githubUser, setGithubUser] = useState('');
   const [followers, setFollowers] = useState('');
+  const [repos, SetRepos] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
   const searchUser = async (user) => {
@@ -23,9 +24,15 @@ export const UserProvider = ({ children }) => {
         const { login, followers_url } = data;
         const followersResponse = await axios(`${followers_url}?per_page=100`);
         const followersData = await followersResponse.data;
+        const reposResponse = await axios(
+          `${URL}/users/${login}/repos?per_page=100`
+        );
+        const reposData = await reposResponse.data;
         if (followersData) {
           setFollowers(followersData);
-          console.log(followers);
+        }
+        if (reposData) {
+          SetRepos(reposData);
         }
       }
     } catch (error) {
@@ -64,6 +71,7 @@ export const UserProvider = ({ children }) => {
         requests,
         followers,
         errorMsg,
+        repos,
       }}
     >
       {children}
