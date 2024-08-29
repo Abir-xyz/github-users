@@ -9,7 +9,7 @@ charts(FusionCharts);
 const ChartComponent = ({ data }) => {
   const dataSource = {
     chart: {
-      caption: 'Most Popular',
+      caption: 'Most Popular Repos',
       yAxisName: 'Stars',
       xAxisName: 'Repos',
       xAxisNameFontSize: 16,
@@ -37,6 +37,8 @@ const ChartComponent = ({ data }) => {
       paletteColors: '#8BC1F7, #519DE9 , #06C, #004B95, #002F5D',
       bgColor: '#FFFFFF',
       showBorder: 0,
+      XAxisNamePadding: '10',
+      showToolTip: '0',
     },
     data,
   };

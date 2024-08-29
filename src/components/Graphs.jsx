@@ -6,41 +6,73 @@ import {
   ForkedByBar,
 } from '../charts/index';
 import { useUserContext } from '../context/UserContext';
+import Data from '../context/MockData';
 
 const Graphs = () => {
-  const { repos } = useUserContext();
-  // console.log(repos[0].language);
+  // const { repos } = useUserContext();
 
-  const data = [
-    {
-      label: 'Ice Cream Sandwich',
-      value: '1067550000',
+  // Statistics
+  const DataOfLanguages = Data.reduce((total, item) => {
+    const { language, stargazers_count } = item;
+    if (!language) {
+      return total;
+    }
+    if (!total[language]) {
+      total[language] = {
+        label: language,
+        value: 1,
+        stars: stargazers_count,
+      };
+    } else {
+      total[language].value += 1;
+      total[language].stars += stargazers_count;
+    }
+    return total;
+  }, {});
+
+  // stats 2
+  let { stars, forks } = Data.reduce(
+    (total, item) => {
+      const { stargazers_count, name, forks } = item;
+      total.stars[stargazers_count] = { label: name, value: stargazers_count };
+      total.forks[forks] = { label: name, value: forks };
+      return total;
     },
     {
-      label: 'Jelly Bean',
-      value: '572550000',
-    },
-    {
-      label: 'Kitkat',
-      value: '544500000',
-    },
-    {
-      label: 'Lollipop',
-      value: '290760000',
-    },
-    {
-      label: 'Marshmallow',
-      value: '197670000',
-    },
-  ];
+      stars: {},
+      forks: {},
+    }
+  );
+
+  stars = Object.values(stars).slice(-5).reverse();
+  forks = Object.values(forks).slice(-5).reverse();
+
+  // Most Used Languages/ Pie
+  const languagesData = Object.values(DataOfLanguages)
+    .sort((a, b) => b.value - a.value)
+    .slice(0, 5);
+
+  console.log(languagesData);
+
+  // stars / doughnut
+  const starsData = Object.values(DataOfLanguages)
+    .sort((a, b) => b.stars - a.stars)
+    .map((item) => {
+      return { ...item, value: item.stars };
+    })
+    .slice(0, 5);
+
+  console.log(starsData);
+
+  // Most Popular Repos
 
   return (
     <Wrapper className='section'>
       <div className='container'>
-        <LanguagesByPie data={data} />
-        <PopularByColumn data={data} />
-        <StarsByDoughnut data={data} />
-        <ForkedByBar data={data} />
+        <LanguagesByPie data={languagesData} />
+        <PopularByColumn data={stars} />
+        <StarsByDoughnut data={starsData} />
+        <ForkedByBar data={forks} />
       </div>
     </Wrapper>
   );
