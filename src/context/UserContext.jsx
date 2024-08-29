@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { createContext } from 'react';
-
+import mockUserData from './MockUser';
+import MockFollowers from './MockFollowers';
+import MockRepos from './MockRepos';
 // root url
 const URL = 'https://api.github.com';
 
@@ -9,9 +11,9 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [requests, setRequests] = useState(0);
-  const [githubUser, setGithubUser] = useState('');
-  const [followers, setFollowers] = useState('');
-  const [repos, SetRepos] = useState('');
+  const [githubUser, setGithubUser] = useState(mockUserData);
+  const [followers, setFollowers] = useState(MockFollowers);
+  const [repos, SetRepos] = useState(MockRepos);
   const [errorMsg, setErrorMsg] = useState('');
 
   const searchUser = async (user) => {
@@ -46,17 +48,19 @@ export const UserProvider = ({ children }) => {
     try {
       const response = await axios(`${URL}/rate_limit`);
       const data = await response.data;
-      if (data) {
-        const value = data.resources.core.remaining;
-        if (value === 0) {
-          setErrorMsg('No more requests available now!');
-        }
-        setRequests(value);
+      const value = data.resources.core.remaining;
+      if (value === 0) {
+        setErrorMsg('No more requests available now!');
       }
+      setRequests(value);
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    checkRequest();
+  }, []);
 
   // useState(() => {
   //   searchUser('gaearon');

@@ -37,8 +37,9 @@ const ChartComponent = ({ data }) => {
       paletteColors: '#8BC1F7, #519DE9 , #06C, #004B95, #002F5D',
       bgColor: '#FFFFFF',
       showBorder: 0,
-      XAxisNamePadding: '10',
+      XAxisNamePadding: '30',
       showToolTip: '0',
+      labelPadding: '15',
     },
     data,
   };

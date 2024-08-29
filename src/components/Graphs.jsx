@@ -6,13 +6,12 @@ import {
   ForkedByBar,
 } from '../charts/index';
 import { useUserContext } from '../context/UserContext';
-import Data from '../context/MockData';
 
 const Graphs = () => {
-  // const { repos } = useUserContext();
+  const { repos } = useUserContext();
 
   // Statistics
-  const DataOfLanguages = Data.reduce((total, item) => {
+  const DataOfLanguages = repos.reduce((total, item) => {
     const { language, stargazers_count } = item;
     if (!language) {
       return total;
@@ -31,7 +30,7 @@ const Graphs = () => {
   }, {});
 
   // stats 2
-  let { stars, forks } = Data.reduce(
+  let { stars, forks } = repos.reduce(
     (total, item) => {
       const { stargazers_count, name, forks } = item;
       total.stars[stargazers_count] = { label: name, value: stargazers_count };
@@ -52,8 +51,6 @@ const Graphs = () => {
     .sort((a, b) => b.value - a.value)
     .slice(0, 5);
 
-  console.log(languagesData);
-
   // stars / doughnut
   const starsData = Object.values(DataOfLanguages)
     .sort((a, b) => b.stars - a.stars)
@@ -61,8 +58,6 @@ const Graphs = () => {
       return { ...item, value: item.stars };
     })
     .slice(0, 5);
-
-  console.log(starsData);
 
   // Most Popular Repos
 
