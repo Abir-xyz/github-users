@@ -76,7 +76,7 @@ const Graphs = () => {
 const Wrapper = styled.section`
   .container div {
     width: 100% !important;
-    margin: 2rem 0;
+    margin: 2rem 0 !important;
   }
 
   .container svg {
