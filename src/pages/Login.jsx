@@ -12,10 +12,10 @@ const Login = () => {
           <img src={loginSvg} className='login-img' />
         </div>
         <div className='btn-wrapper'>
-          <button className='login-btn' onClick={() => loginWithRedirect()}>
+          <button className='global-btn' onClick={() => loginWithRedirect()}>
             <span className='btn-text'>Login / Sign Up</span>
             <span>
-              <i class='fa-solid fa-arrow-right-to-bracket'></i>
+              <i className='fa-solid fa-arrow-right-to-bracket'></i>
             </span>
           </button>
         </div>
@@ -40,23 +40,9 @@ const Wrapper = styled.section`
   .btn-wrapper {
     margin-top: 3rem;
   }
-  .login-btn {
-    background: var(--themeClr);
-    color: #fff;
-    font-size: 1.1rem;
-    padding: 8px 18px;
-    border-radius: 10rem;
-    border: none;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-  }
+
   .btn-text {
     margin-right: 10px;
-  }
-  .login-btn:hover {
-    background-color: var(--hoverClr);
   }
 `;
 
