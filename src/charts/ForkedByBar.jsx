@@ -10,8 +10,8 @@ const ChartComponent = ({ data }) => {
   const dataSource = {
     chart: {
       caption: 'Most Forked',
-      bgColor: '#121113',
-      bgAlpha: '99',
+      bgColor: '#1c1c21',
+      bgAlpha: '50',
       yAxisName: 'Forks',
       xAxisName: 'Repos',
       xAxisNameFontSize: 16,

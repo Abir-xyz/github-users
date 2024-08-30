@@ -10,8 +10,9 @@ const ChartComponent = ({ data }) => {
   const dataSource = {
     chart: {
       caption: 'Languages',
-      bgColor: '#121113',
-      bgAlpha: '99',
+      showToolTip: 0,
+      bgColor: '#1c1c21',
+      bgAlpha: '50',
       captionFontSize: 18,
       captionFont: 'Poppins',
       captionFontColor: '#FFFFFF',

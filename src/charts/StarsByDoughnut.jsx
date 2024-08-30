@@ -10,8 +10,9 @@ const ChartComponent = ({ data }) => {
   const dataSource = {
     chart: {
       caption: 'Stars Per Language',
-      bgColor: '#121113',
-      bgAlpha: '99',
+      showToolTip: 0,
+      bgColor: '#1c1c21',
+      bgAlpha: '50',
       decimals: 0,
       pieRadius: '50%',
       doughnutRadius: '60%',

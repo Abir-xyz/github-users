@@ -76,13 +76,15 @@ const Graphs = () => {
 const Wrapper = styled.section`
   .container div {
     width: 100% !important;
-    margin: 2.8rem 0;
   }
 
   .container svg {
     width: 100% !important;
-    border-radius: 5px !important;
-    background-color: #160c1f !important;
+  }
+
+  .container svg {
+    background-color: rgba(44, 44, 44, 0.2) !important;
+    border-radius: 8px !important;
   }
 
   @media screen and (min-width: 992px) {
@@ -90,7 +92,7 @@ const Wrapper = styled.section`
       display: grid;
       grid-template-columns: 40% 60%;
       grid-template-rows: 50% 50%;
-      gap: 16px;
+      gap: 0 16px;
       height: 100vh;
     }
 
