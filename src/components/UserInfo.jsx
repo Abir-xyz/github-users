@@ -11,7 +11,7 @@ const UserInfo = () => {
         <div className='title'>
           <p>User</p>
         </div>
-        <div className='container-center'>
+        <div className='container-center tiles'>
           <div className='user-personal'>
             <div className='user-img-wrapper'>
               <div className='user-img'>
@@ -90,13 +90,10 @@ const Wrapper = styled.section`
     padding-bottom: 8px;
     font-size: 1.2rem;
     font-weight: 600;
-    /* background-color: #fff; */
     border-radius: 5px;
   }
   .container-center {
     background-color: #fff;
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
     padding: 30px 20px;
     border-radius: 5px;
   }
@@ -134,26 +131,35 @@ const Wrapper = styled.section`
   .user-icons {
     padding: 5px 0;
   }
+
+  .user-icons a{
+    color: cadetblue;
+  }
+
   .user-icons span i {
     padding-right: 8px;
     font-size: 1.1rem;
   }
+
   .follow-btn {
-    background: transparent;
-    border: 1px solid var(--themeClr);
-    font-size: 1rem;
-    padding: 6px 12px;
-    font-weight: 500;
-    color: var(--themeClr);
+    background: rgba(101, 80, 185, 0.35);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.2px);
+    -webkit-backdrop-filter: blur(6.2px);
+    border: 1px solid rgba(101, 80, 185, 0.35);
+    font-size: 1.1rem;
+    padding: 6px 16px;
     border-radius: 5px;
-    transition: var(--transition);
+    color: #ebebeb;
     cursor: pointer;
+    transition: var(--transition);
     text-decoration: none;
   }
+
   .follow-btn:hover {
-    background-color: var(--hoverClr);
-    color: #fff;
+    background: rgba(101, 80, 185, 0.808);
   }
+
   @media screen and (min-width: 800px) {
     .title {
       font-size: 1.3rem;

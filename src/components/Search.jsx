@@ -25,7 +25,7 @@ const Search = () => {
               onChange={(e) => setUser(e.target.value)}
               required
             />
-            <button type='submit' className='btn'>
+            <button type='submit' className='btn global-btn'>
               <span className='btn-text'>Search</span>
               <span>
                 <i className='fa-solid fa-magnifying-glass'></i>
@@ -50,28 +50,17 @@ const Wrapper = styled.section`
   .search-input {
     width: 100%;
     padding: 5px;
+    border: 1px solid var(--violet);
     border-radius: 5px;
     outline: none;
-    border: 1px solid;
     font-size: 1rem;
+    background: transparent;
+    color: var(--txtWhite);
   }
   .btn {
-    font-size: 1rem;
-    padding: 5px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--themeClr);
-    color: #fff;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 20px;
     display: flex;
     align-items: center;
-  }
-  .btn:hover {
-    background-color: var(--hoverClr);
+    margin-left: 16px;
   }
   .btn-text {
     margin-right: 10px;
@@ -87,7 +76,7 @@ const Wrapper = styled.section`
   }
 
   .requests {
-    font-size: 1.1rem;
+    font-size: 1.1rem !important;
   }
 
   .err {

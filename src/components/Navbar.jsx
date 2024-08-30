@@ -34,7 +34,7 @@ const Navbar = () => {
           </div>
           <div className='logout-wrapper'>
             <button
-              className='logout-btn'
+              className='logout-btn global-btn'
               onClick={() => {
                 logout({ logoutParams: { returnTo: window.location.origin } });
               }}
@@ -53,9 +53,11 @@ const Navbar = () => {
 
 const Wrapper = styled.section`
   .nav-container {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    padding: 20px;
+    padding: 16px;
+    z-index: 200;
+    backdrop-filter: blur(10px);
+    background-color: #0f0e11;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 
   .nav-center {
@@ -71,9 +73,10 @@ const Wrapper = styled.section`
   }
   .greet-text {
     font-size: 1.1rem;
+    font-weight: 500;
   }
-  .user-name{
-    font-weight: 600;
+  .user-name {
+    font-weight: 400;
   }
   .greet-wrapper {
     display: flex;
@@ -84,7 +87,7 @@ const Wrapper = styled.section`
   .logout-wrapper {
     margin-left: 50px;
   }
-  .logout-btn {
+  /* .logout-btn {
     background: var(--themeClr);
     color: #fff;
     padding: 8px 20px;
@@ -98,7 +101,7 @@ const Wrapper = styled.section`
   }
   .logout-btn:hover {
     background-color: var(--hoverClr);
-  }
+  } */
   .logout-text {
     margin-right: 10px;
   }
